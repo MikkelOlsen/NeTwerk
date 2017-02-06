@@ -1,13 +1,15 @@
 <?php
 
+
 if( isset( $_POST['send']))
 {
     $uname = $_POST['username'];
     $passw = $_POST['password'];
-    $fname = $_POST['firstname'];
-    $lname = $_POST['lastname'];
+    $fname = $_POST['first_name'];
+    $lname = $_POST['last_name'];
     $email = $_POST['email'];
-    $sqli = "INSERT INTO users_table (username, password, firstname, lastname, email, membersite) VALUES ('$uname', '$passw', '$fname', '$lname', '$email', NOW() )";
+    $conn = new mysqli( 'localhost', 'root', '', 'mysocialnetwork' );
+    $sqli = "INSERT INTO users_table (username, password, first_name, last_name, email, membersince) VALUES ('$uname', '$passw', '$fname', '$lname', '$email', NOW() )";
     $conn->query($sqli);
     header( 'Location: index.php' );
 }
@@ -20,12 +22,22 @@ if( isset( $_POST['send']))
     <form method="post" action="" class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input name="firstname" id="firstnamee" type="text" class="validate">
-          <label for="firstname">First Name</label>
+          <input name="first_name" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
         </div>
         <div class="input-field col s6">
-            <input type="text" name="lastname" id="lastname" class="validate">
-            <label for="lastname">Last Name</label>
+            <input type="text" name="last_name" id="last_name" class="validate">
+            <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="text" name="username" class="validate" id="username">
+          <label for="username">Username</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="text" name="email" class="validate" id="email">
+          <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
@@ -33,17 +45,12 @@ if( isset( $_POST['send']))
           <input id="password" type="password" class="validate" name="password">
           <label for="password">Password</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s16">
-
+        <div class="input-field col s6">
+          <input id="password" type="password" class="validate" name="repeat">
+          <label for="password">Repeat Password</label>
         </div>
       </div>
-      <div class="row">
-        <div class="col s6">
-        
-        </div>
-      </div>
+      <input class="waves-effect waves-light btn" type="submit" name="send" value="Register">
     </form>
   </div>
   </div>

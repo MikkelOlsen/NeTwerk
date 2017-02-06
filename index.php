@@ -53,11 +53,11 @@ $conn = new mysqli( 'localhost', 'root', '', 'mysocialnetwork' );
 
     if( isset( $_SESSION['userIDloggedin']))
     {
-        echo 'Du er loggen ind som: <a href="index.php?side=showprofile.php&userIDprofile=' . $_SESSION['userIDloggedin'] . '">' . $_SESSION['userloggedin'] . '</a>'; 
+        echo 'Logged in as: <a href="index.php?side=showprofile.php&userIDprofile=' . $_SESSION['userIDloggedin'] . '">' . $_SESSION['usernameloggedin'] . '</a>'; 
     }
     else
     {
-        $_SESSION['userloggedin'] = 'Anonymous';
+        $_SESSION['usernameloggedin'] = 'Anonymous';
         echo '<h3> You are not logged in </h3>';
     }
 

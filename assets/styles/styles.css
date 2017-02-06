@@ -1,14 +1,11 @@
-@font-face {
-    font-family: Asgalt;
-    src: url(./assets/fonts/Asgalt-Regular.ttf);
-}
+
 
 nav {
     background-color: #292929;
 }
 
 header nav .nav-wrapper .brand-logo h1 {
-    font-family: Asgalt;
+    font-family: Arial, Helvetica, sans-serif;
     margin-top: 0;
     font-size: 80px;
     font-weight: bold;
