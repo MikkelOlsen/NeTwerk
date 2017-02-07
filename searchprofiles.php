@@ -19,12 +19,14 @@
         $sqli = "SELECT * FROM users_table WHERE first_name LIKE '%$searchtext%' OR last_name LIKE '%$searchtext%' OR username LIKE '%$searchtext%'";
         $resultuser =  $conn->query( $sqli );
 
+            echo "<div class='container'>";
         while( $tableuser = $resultuser->fetch_assoc() )
         {
-            echo "<div class='container'>";
+            echo '<div class="row">';
             echo $tableuser['first_name'] . ' ' . $tableuser['last_name'] . '<br />' . '<a href="index.php?side=showprofile.php&userIDprofile=' . $tableuser['id'] . '">' . $tableuser['username'] . '</a>' . '<br /><br />';
             echo '</div>';
         }
+            echo '</div>';
     }
 
 ?>

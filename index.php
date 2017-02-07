@@ -13,7 +13,7 @@ $conn = new mysqli( 'localhost', 'root', '', 'mysocialnetwork' );
     <title>NeTwerk</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
@@ -23,46 +23,54 @@ $conn = new mysqli( 'localhost', 'root', '', 'mysocialnetwork' );
 </head>
 <body>
     <header>
+    <div class="navbar-fixed">
     <nav>
     <div class="nav-wrapper">
       <a href="index.php" class="brand-logo"><h1>NeTwerk</h1></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="dropdown1" class="dropdown-content">
+          <li><a href="index.php?side=editprofile.php">Edit Profile</a></li>
+          <li><a href="index.php?side=deleteprofile.php">Delete Profile</a></li>
+          <li><a href="index.php?side=searchprofiles.php">Search Profiles</a></li>
+          <li><a href="index.php?side=uploadfile.php">Upload File</a></li>
+          <li><a href="index.php?side=logout.php">Log Out</a></li>
+      </ul>
       <ul class="right hide-on-med-and-down">
-        <li><a href="index.php?side=createprofile.php">Create Profile</a></li>
-        <li><a href="index.php?side=editprofile.php">Edit Profile</a></li>
-        <li><a href="index.php?side=deleteprofile.php">Delete Profile</a></li>
-        <li><a href="index.php?side=searchprofiles.php">Search Profiles</a></li>
-        <li><a href="index.php?side=uploadfile.php">Upload File</a></li>
-        <li><a href="index.php?side=login.php">Log In</a></li>
-        <li><a href="index.php?side=logout.php">Log Out</a></li>
+        <?php
+        if( isset( $_SESSION['userIDloggedin']))
+        {
+            echo '<li><a id="profile" href="index.php?side=showprofile.php&userIDprofile=' . $_SESSION['userIDloggedin'] . '">' . $_SESSION['usernameloggedin'] . '</a>' . '<li>';
+            echo '<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>';
+        }
+        else 
+        {
+            echo '<li><a href="index.php?side=createprofile.php">Create Profile</a></li>';
+            echo '<li><a href="index.php?side=login.php">Log In</a></li>';
+        }
+        ?>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="index.php?side=createprofile.php">Create Profile</a></li>
-        <li><a href="index.php?side=editprofile.php">Edit Profile</a></li>
-        <li><a href="index.php?side=deleteprofile.php">Delete Profile</a></li>
-        <li><a href="index.php?side=searchprofiles.php">Search Profiles</a></li>
-        <li><a href="index.php?side=uploadfile.php">Upload File</a></li>
-        <li><a href="index.php?side=login.php">Log In</a></li>
-        <li><a href="index.php?side=logout.php">Log Out</a></li>
+        <?php
+        if( isset( $_SESSION['userIDloggedin']))
+        {
+            echo '<li><a id="profile" href="index.php?side=showprofile.php&userIDprofile=' . $_SESSION['userIDloggedin'] . '">' . $_SESSION['usernameloggedin'] . '</a>' . '<li>';
+            echo '<li><a href="index.php?side=editprofile.php">Edit Profile</a></li>';
+            echo '<li><a href="index.php?side=deleteprofile.php">Delete Profile</a></li>';
+            echo '<li><a href="index.php?side=searchprofiles.php">Search Profiles</a></li>';
+            echo '<li><a href="index.php?side=uploadfile.php">Upload File</a></li>';
+            echo '<li><a href="index.php?side=logout.php">Log Out</a></li>';
+        }
+        else 
+        {
+            echo '<li><a href="index.php?side=createprofile.php">Create Profile</a></li>';
+            echo '<li><a href="index.php?side=login.php">Log In</a></li>';
+        }
+        ?>
       </ul>
     </div>
   </nav>
+  </div>
     </header>
-
-    <?php
-
-    if( isset( $_SESSION['userIDloggedin']))
-    {
-        echo 'Logged in as: <a href="index.php?side=showprofile.php&userIDprofile=' . $_SESSION['userIDloggedin'] . '">' . $_SESSION['usernameloggedin'] . '</a>'; 
-    }
-    else
-    {
-        $_SESSION['usernameloggedin'] = 'Anonymous';
-        echo '<h3> You are not logged in </h3>';
-    }
-
-    ?>
-
     <?php
 
     if( isset( $_GET['side']))

@@ -1,0 +1,42 @@
+nav {
+    background-color: #006064;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+header nav .nav-wrapper .brand-logo h1 {
+    margin-top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropdown-button {
+    width: 150px;
+    text-align: center;
+}
+
+ul li a:hover {
+    background-color: #00838f;
+}
+
+ul li #profile {
+    color: white;
+}
+
+.btn {
+    background-color: #006064;
+}
+
+.btn:hover {
+    background-color: #00838f;
+}
+
+.card {
+    -webkit-box-shadow: 5px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 5px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 5px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.card .btn {
+    width: 50%;
+}
