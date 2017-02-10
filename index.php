@@ -40,6 +40,9 @@ $conn = new mysqli( 'localhost', 'root', '', 'mysocialnetwork' );
         if( isset( $_SESSION['userIDloggedin']))
         {
             echo '<li><a id="profile" href="index.php?side=showprofile.php&userIDprofile=' . $_SESSION['userIDloggedin'] . '">' . $_SESSION['usernameloggedin'] . '</a>' . '<li>';
+            echo '<form action="index.php?side=searchprofiles.php" method="post">
+                  <input type="text" name="searchtext">
+                  </form>';
             echo '<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>';
         }
         else 

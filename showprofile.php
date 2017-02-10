@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s6">
+            <div class="input-field col s6">
                 <label for="message">Message</label>
                 <textarea class="col s12" name="message"></textarea>
             </div>
@@ -50,7 +50,7 @@
             if( count ( $tableuser) > 0 )
             {
                 $username = $tableuser['username'];
-                echo '<div class="card-action"><a href="index.php?side=showprofile.php&userIDprofile=' . $tableuser['id'] . '">' . $username . '</a>' . '</div>';
+                echo '<div class="card-action"><p>From: <a href="index.php?side=showprofile.php&userIDprofile=' . $tableuser['id'] . '">' . $username . '</a>' . '</p>' . '</div>';
             }
             else 
             {

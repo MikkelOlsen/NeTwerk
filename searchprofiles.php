@@ -1,15 +1,3 @@
-
-<div class="container">
-<h2>Search Profiles</h2>
-
-<div class="col s6">
-<form action="index.php?side=searchprofiles.php" method="post">
-    <input type="text" name="searchtext">
-    <input type="submit" class="waves-effect waves-light btn" value="Search">
-</form>
-</div>
-</div>
-
 <?php
 
     if ( isset( $_POST['searchtext']))
@@ -20,6 +8,11 @@
         $resultuser =  $conn->query( $sqli );
 
             echo "<div class='container'>";
+            if( mysqli_num_rows($resultuser) <=0 || empty($searchtext))
+            {
+                echo 'No results found';
+            }
+            else {
         while( $tableuser = $resultuser->fetch_assoc() )
         {
             echo '<div class="row">';
@@ -27,6 +20,7 @@
             echo '</div>';
         }
             echo '</div>';
+            }
     }
 
 ?>
