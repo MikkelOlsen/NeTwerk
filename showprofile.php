@@ -15,6 +15,7 @@
         echo '<h2>' . $tableuser['username'] . '</h2>' . '<br /><br />';
         echo 'Email: ' . $tableuser['email'] . '<br /><br />';
         echo 'Member Since: ' . $tableuser['membersince'] . '<br /><br />';
+        include('showimg.php');
 
         $sqli = "SELECT * FROM messages WHERE userid='" . $_SESSION['userIDprofile']. "'";
         $resultmessage = $conn->query( $sqli );
