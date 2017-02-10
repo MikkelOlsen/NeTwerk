@@ -1,3 +1,11 @@
+<div class="container">
+    <h3>Search Profiles</h2>
+    <form action="index.php?side=searchprofiles.php" method="post">
+    <input type="text" name="searchtext">
+    <input type="submit" value="Search" class="waves-effect waves-light btn">
+    </form>
+</div>
+
 <?php
 
     if ( isset( $_POST['searchtext']))

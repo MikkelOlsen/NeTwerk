@@ -31,7 +31,6 @@ $conn = new mysqli( 'localhost', 'root', '', 'mysocialnetwork' );
       <ul id="dropdown1" class="dropdown-content">
           <li><a href="index.php?side=editprofile.php">Edit Profile</a></li>
           <li><a href="index.php?side=deleteprofile.php">Delete Profile</a></li>
-          <li><a href="index.php?side=searchprofiles.php">Search Profiles</a></li>
           <li><a href="index.php?side=uploadfile.php">Upload File</a></li>
           <li><a href="index.php?side=logout.php">Log Out</a></li>
       </ul>
